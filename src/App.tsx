@@ -1,26 +1,48 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Todolist} from "./Todolist";
 
+export type taskType = {
+    description: string
+    title: string
+    completed: boolean
+    status: number
+    priority: number
+    startDate: string
+    deadline: string
+    id: string
+    todoListId: string
+    order: number
+    addedDate: string
+}
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const tasks1: taskType[] = [
+        {
+            id: "1", description: "", title: "Input Values", completed: false, status: 1, priority: 1,
+            startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+        },
+        {
+            id: "2", description: "", title: "Change Status", completed: true, status: 1, priority: 1,
+            startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+        },
+    ]
+    const tasks2: taskType[] = [
+        {
+            id: "1", description: "", title: "Learn React", completed: false, status: 1, priority: 1,
+            startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+        },
+        {
+            id: "2", description: "", title: "Learn JS", completed: false, status: 1, priority: 1,
+            startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+        },
+    ]
+    return (
+        <div className="App">
+            <Todolist title="Work" tasks = {tasks1}/>
+            <Todolist title="Home" tasks = {tasks2}/>
+        </div>
+    );
 }
 
 export default App;
