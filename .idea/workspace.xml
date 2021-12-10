@@ -9,7 +9,8 @@
       <change afterPath="$PROJECT_DIR$/../../3.wednasday/native js/src/lessons/lesson6/clockClass.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../4.tuesday/my-app/.env" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../4.tuesday/my-app/src/app/app-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../4.tuesday/my-app/src/components/ErrorForm/ErrorSnackbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4.tuesday/my-app/src/features/Login/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4.tuesday/my-app/src/features/Login/authReducer.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../4.tuesday/my-app/src/utils/error-utils.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
@@ -23,6 +24,9 @@
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockAnalog.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockAnalog.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/task.test.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/tasks.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/todolists-reducer.test.ts" beforeDir="false" />
@@ -66,7 +70,13 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="D:\IT-INCUBATOR\todolist\my-app\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="es6.move.members.recent.items">
+      <recent name="D:\IT-INCUBATOR\todolist\my-app\src\Todolist.tsx" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -77,10 +87,24 @@
       <option name="presentableId" value="Default" />
       <updated>1638383521310</updated>
       <workItem from="1638383527810" duration="679000" />
+      <workItem from="1639075543922" duration="1803000" />
+      <workItem from="1639164244910" duration="3488000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
