@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Todolist} from "./Todolist";
+import {v1} from "uuid";
 
 export type taskType = {
     description: string
@@ -18,29 +19,39 @@ export type taskType = {
 export type filterTaskType = 'all' | 'active' | 'completed'
 
 function App() {
-    const [tasks, setTasks] = useState<taskType[]>([
+    let [tasks, setTasks] = useState<taskType[]>([
         {
-            id: "1", description: "", title: "Learn React", completed: false, status: 1, priority: 1,
+            id: v1(), description: "", title: "Learn React", completed: false, status: 1, priority: 1,
             startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
         },
         {
-            id: "2", description: "", title: "Learn JS", completed: false, status: 1, priority: 1,
+            id: v1(), description: "", title: "Learn JS", completed: false, status: 1, priority: 1,
             startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
         },
         {
-            id: "3", description: "", title: "HTML", completed: true, status: 1, priority: 1,
+            id: v1(), description: "", title: "HTML", completed: true, status: 1, priority: 1,
             startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
         },
     ])
     const [filter, setFilter] = useState<filterTaskType>('all')
 
-    let filteredTasks: taskType[];
-    filter === 'active'
-        ? filteredTasks = [...tasks.filter(t => !t.completed)]
-        : filteredTasks = [...tasks.filter(t => t.completed)]
+    let filteredTasks: taskType[]
+    if (filter === 'all') filteredTasks = tasks
+    else {
+        filter === 'active'
+            ? filteredTasks = [...tasks.filter(t => !t.completed)]
+            : filteredTasks = [...tasks.filter(t => t.completed)]
+    }
 
     const removeTask = (taskId: string) => {
         setTasks([...tasks.filter(t => t.id !== taskId)])
+    }
+    const addTask = (title: string) => {
+        let newTask = {
+            id: v1(), description: "", title, completed: false, status: 1, priority: 1,
+            startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+        }
+        setTasks( [newTask,...tasks])
     }
 
     return (
@@ -48,7 +59,8 @@ function App() {
             <Todolist title="Home"
                       tasks={filteredTasks}
                       removeTask={removeTask}
-                      setFilter = {setFilter}
+                      setFilter={setFilter}
+                      addTask = {addTask}
             />
         </div>
     );
