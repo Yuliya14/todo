@@ -51,7 +51,14 @@ function App() {
             id: v1(), description: "", title, completed: false, status: 1, priority: 1,
             startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
         }
-        setTasks( [newTask,...tasks])
+        setTasks([newTask, ...tasks])
+    }
+    const changeTaskStatus = (taskId: string, completed: boolean) => {
+        let task = tasks.find(t => t.id === taskId)
+        if (task) {
+            task.completed = completed
+            setTasks([...tasks])
+        }
     }
 
     return (
@@ -59,8 +66,10 @@ function App() {
             <Todolist title="Home"
                       tasks={filteredTasks}
                       removeTask={removeTask}
+                      filter = {filter}
                       setFilter={setFilter}
-                      addTask = {addTask}
+                      addTask={addTask}
+                      changeTaskStatus = {changeTaskStatus}
             />
         </div>
     );
