@@ -26,7 +26,6 @@
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/task.test.ts" beforeDir="false" />
@@ -68,7 +67,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -95,6 +94,8 @@
       <workItem from="1639258087376" duration="34000" />
       <workItem from="1639305510864" duration="2778000" />
       <workItem from="1639311859366" duration="22000" />
+      <workItem from="1639314741885" duration="657000" />
+      <workItem from="1639419242287" duration="4161000" />
     </task>
     <servers />
   </component>

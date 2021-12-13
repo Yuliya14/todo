@@ -2,25 +2,28 @@ import React, {ChangeEvent, MouseEvent, KeyboardEvent, useState} from "react";
 import {filterTaskType, taskType} from "./App";
 
 type TodolistPropsType = {
+    todolistId: string
     title: string
     tasks: taskType[]
-    removeTask: (taskId: string) => void
+    removeTask: (taskId: string, todolistId: string) => void
     filter: filterTaskType
-    setFilter: (filter: filterTaskType) => void
-    addTask: (title: string) => void
-    changeTaskStatus: (taskId: string, completed: boolean) => void
+    addTask: (title: string, todolistId: string) => void
+    changeTaskStatus: (taskId: string, completed: boolean, todolistId: string) => void
+    removeTodolist: (todolistId: string) => void
+    changeTodolistFilter: (filterValue: filterTaskType, todolistId: string) => void
 }
 export const Todolist = (props: TodolistPropsType) => {
     const [title, setTitle] = useState("")
     const [error, setError] = useState<string | null>(null)
 
-    const setFilterAll = (e: MouseEvent<HTMLButtonElement>) => props.setFilter('all')
-    const setFilterActive = (e: MouseEvent<HTMLButtonElement>) => props.setFilter('active')
-    const setFilterCompleted = (e: MouseEvent<HTMLButtonElement>) => props.setFilter('completed')
+    const removeTodolist = (e: MouseEvent<HTMLButtonElement>) => props.removeTodolist(props.todolistId)
+    const setFilterAll = (e: MouseEvent<HTMLButtonElement>) => props.changeTodolistFilter('all', props.todolistId)
+    const setFilterActive = (e: MouseEvent<HTMLButtonElement>) => props.changeTodolistFilter('active', props.todolistId)
+    const setFilterCompleted = (e: MouseEvent<HTMLButtonElement>) => props.changeTodolistFilter('completed', props.todolistId)
 
     const addTask = (e: MouseEvent<HTMLButtonElement>) => {
         if (title.trim() !== "") {
-            props.addTask(title)
+            props.addTask(title, props.todolistId)
             setTitle('')
         } else {
             setError('Field is required!')
@@ -31,7 +34,7 @@ export const Todolist = (props: TodolistPropsType) => {
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null)
         if (e.charCode === 13 && title.trim() !== "") {
-            props.addTask(title)
+            props.addTask(title, props.todolistId)
             setTitle('')
         } else if (e.charCode === 13 && title.trim() === ""){
             setError('Field is required!')
@@ -39,7 +42,10 @@ export const Todolist = (props: TodolistPropsType) => {
     }
 
     return <div>
-        <h3>{props.title}</h3>
+
+        <button onClick={removeTodolist}>X</button>
+        <span>{props.title}</span>
+
         <div>
             <input className={error ? 'error' : ''} value={title} onChange={setTitleTask} onKeyPress={onKeyPressHandler}/>
             <button onClick={addTask}>+</button>
@@ -48,17 +54,17 @@ export const Todolist = (props: TodolistPropsType) => {
         <ul>{props.tasks.map(t => {
 
             const removeTask = (e: MouseEvent<HTMLButtonElement>) => {
-                props.removeTask(t.id)
+                props.removeTask(t.id, props.todolistId)
             }
             const changeTaskStatus = (e: MouseEvent<HTMLInputElement>) => {
                 let currentTaskCompleted = e.currentTarget.checked
-                props.changeTaskStatus(t.id, currentTaskCompleted)
+                props.changeTaskStatus(t.id, currentTaskCompleted, props.todolistId)
             }
             return <div key={t.id}>
                 <li>
                     <button onClick={removeTask}>X</button>
                     <input type='checkbox' checked={t.completed} onClick={changeTaskStatus}/>
-                    <span className={t.completed === true ? 'is-done' : ''}>{t.title}</span></li>
+                    <span className={t.completed ? 'is-done' : ''}>{t.title}</span></li>
             </div>
         })}
         </ul>
