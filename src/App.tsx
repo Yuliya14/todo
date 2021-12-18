@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {Todolist} from "./Todolist";
 import {v1} from "uuid";
+import {AddItemForm} from "./AddItemForm";
 
 export type taskType = {
     description: string
@@ -99,9 +100,18 @@ function App() {
             setTodolists([...todolists])
         }
     }
+    const addTodolist = (title:string) => {
+        const newTodolistId = v1()
+        setTodolists([{id: newTodolistId, addedDate: "", order: 0, title, filter: 'all'}, ...todolists])
+        setTasks({...tasks,
+            [newTodolistId]: []})
+    }
+
 
     return (
-        <div> {todolists.map(t => {
+        <div>
+            <AddItemForm addItem={addTodolist}/>
+            {todolists.map(t => {
             let allTodolistTasks = tasks[t.id]
             let filteredTasks: taskType[]
             if (t.filter === 'all') filteredTasks = allTodolistTasks

@@ -1,5 +1,6 @@
-import React, {ChangeEvent, MouseEvent, KeyboardEvent, useState} from "react";
+import React, {MouseEvent} from "react";
 import {filterTaskType, taskType} from "./App";
+import {AddItemForm} from "./AddItemForm";
 
 type TodolistPropsType = {
     todolistId: string
@@ -13,44 +14,24 @@ type TodolistPropsType = {
     changeTodolistFilter: (filterValue: filterTaskType, todolistId: string) => void
 }
 export const Todolist = (props: TodolistPropsType) => {
-    const [title, setTitle] = useState("")
-    const [error, setError] = useState<string | null>(null)
 
     const removeTodolist = (e: MouseEvent<HTMLButtonElement>) => props.removeTodolist(props.todolistId)
     const setFilterAll = (e: MouseEvent<HTMLButtonElement>) => props.changeTodolistFilter('all', props.todolistId)
     const setFilterActive = (e: MouseEvent<HTMLButtonElement>) => props.changeTodolistFilter('active', props.todolistId)
     const setFilterCompleted = (e: MouseEvent<HTMLButtonElement>) => props.changeTodolistFilter('completed', props.todolistId)
 
-    const addTask = (e: MouseEvent<HTMLButtonElement>) => {
+    const addTask = (title: string) => {
         if (title.trim() !== "") {
             props.addTask(title, props.todolistId)
-            setTitle('')
-        } else {
-            setError('Field is required!')
-        }
-
-    }
-    const setTitleTask = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
-    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        setError(null)
-        if (e.charCode === 13 && title.trim() !== "") {
-            props.addTask(title, props.todolistId)
-            setTitle('')
-        } else if (e.charCode === 13 && title.trim() === ""){
-            setError('Field is required!')
         }
     }
-
     return <div>
 
         <button onClick={removeTodolist}>X</button>
         <span>{props.title}</span>
 
-        <div>
-            <input className={error ? 'error' : ''} value={title} onChange={setTitleTask} onKeyPress={onKeyPressHandler}/>
-            <button onClick={addTask}>+</button>
-            {error && <div className={'error-message'}>{error}</div>}
-        </div>
+        <AddItemForm addItem={addTask}/>
+
         <ul>{props.tasks.map(t => {
 
             const removeTask = (e: MouseEvent<HTMLButtonElement>) => {
