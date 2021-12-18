@@ -1,6 +1,7 @@
 import React, {MouseEvent} from "react";
 import {filterTaskType, taskType} from "./App";
 import {AddItemForm} from "./AddItemForm";
+import {EditableSpan} from "./EditableSpan";
 
 type TodolistPropsType = {
     todolistId: string
@@ -12,6 +13,8 @@ type TodolistPropsType = {
     changeTaskStatus: (taskId: string, completed: boolean, todolistId: string) => void
     removeTodolist: (todolistId: string) => void
     changeTodolistFilter: (filterValue: filterTaskType, todolistId: string) => void
+    changeTodolistTitle: (newTitle: string, todolistId: string) => void
+    changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
 }
 export const Todolist = (props: TodolistPropsType) => {
 
@@ -25,10 +28,13 @@ export const Todolist = (props: TodolistPropsType) => {
             props.addTask(title, props.todolistId)
         }
     }
+    const changeTodolistTitle =(newTitle: string) => {
+        props.changeTodolistTitle(newTitle, props.todolistId)
+    }
     return <div>
 
         <button onClick={removeTodolist}>X</button>
-        <span>{props.title}</span>
+        <EditableSpan title={props.title} onChange={changeTodolistTitle}/>
 
         <AddItemForm addItem={addTask}/>
 
@@ -41,11 +47,15 @@ export const Todolist = (props: TodolistPropsType) => {
                 let currentTaskCompleted = e.currentTarget.checked
                 props.changeTaskStatus(t.id, currentTaskCompleted, props.todolistId)
             }
+            const changeTaskTitle = (newTitle:string) => {
+                props.changeTaskTitle(t.id, newTitle, props.todolistId)
+            }
             return <div key={t.id}>
-                <li>
+                <li className={t.completed ? 'is-done' : ''}>
                     <button onClick={removeTask}>X</button>
                     <input type='checkbox' checked={t.completed} onClick={changeTaskStatus}/>
-                    <span className={t.completed ? 'is-done' : ''}>{t.title}</span></li>
+                    <EditableSpan title = {t.title} onChange={changeTaskTitle}/>
+                </li>
             </div>
         })}
         </ul>
@@ -56,3 +66,4 @@ export const Todolist = (props: TodolistPropsType) => {
         </div>
     </div>
 }
+
