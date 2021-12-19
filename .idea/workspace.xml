@@ -13,10 +13,20 @@
       <change afterPath="$PROJECT_DIR$/../../4.tuesday/my-app/src/features/Login/authReducer.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../4.tuesday/my-app/src/utils/error-utils.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../css/css_4e-master/css_4e/02/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/Hero/About/About.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/Hero/About/About.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/Hero/Hero.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/Hero/Hero.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/Hero/Nav/Nav.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/Hero/Nav/Nav.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/Services.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/Steps.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/WhyWe/WhyWe.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/WhyWe/WhyWe.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testTasks/engineeringDiagnostics/my-app/src/common/Container.module.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EditableSpan.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../1.monday/TODOLIST/ignat_HW/my-app" beforeDir="false" afterPath="$PROJECT_DIR$/../../1.monday/TODOLIST/ignat_HW/my-app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../monday/TODOLIST/controlwork/my-app/src/Todolist.tsx" beforeDir="false" />
@@ -27,8 +37,12 @@
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddItemForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditableSpan.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/task.test.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/tasks.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/todolists-reducer.test.ts" beforeDir="false" />
@@ -68,7 +82,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../3.wednasday/todo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../2.tuesday/TODOLIST/todolist-victor" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -100,7 +114,8 @@
       <workItem from="1639314741885" duration="657000" />
       <workItem from="1639419242287" duration="4161000" />
       <workItem from="1639425217058" duration="2105000" />
-      <workItem from="1639840812027" duration="7759000" />
+      <workItem from="1639840812027" duration="8542000" />
+      <workItem from="1639923113723" duration="6689000" />
     </task>
     <servers />
   </component>
