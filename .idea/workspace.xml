@@ -27,6 +27,9 @@
       <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/tasks-reducer.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/tasks-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/todolists-tasks-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../1.monday/TODOLIST/ignat_HW/my-app" beforeDir="false" afterPath="$PROJECT_DIR$/../../1.monday/TODOLIST/ignat_HW/my-app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../monday/TODOLIST/controlwork/my-app/src/Todolist.tsx" beforeDir="false" />
@@ -37,12 +40,8 @@
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditableSpan.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolist-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/todolist-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolist-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/task.test.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/tasks.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/todolists-reducer.test.ts" beforeDir="false" />
@@ -82,19 +81,99 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../2.tuesday/TODOLIST/todolist-victor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="D:\IT-INCUBATOR\todolist\my-app\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IT-INCUBATOR\todolist\my-app\src\state" />
+    </key>
     <key name="es6.move.members.recent.items">
       <recent name="D:\IT-INCUBATOR\todolist\my-app\src\EditableSpan.tsx" />
       <recent name="D:\IT-INCUBATOR\todolist\my-app\src\AddItemForm.tsx" />
       <recent name="D:\IT-INCUBATOR\todolist\my-app\src\Todolist.tsx" />
     </key>
+  </component>
+  <component name="RunManager" selected="Jest.ids should be equals">
+    <configuration name="correct task should be added to correct array" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/state/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct task should be added to correct array" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="ids should be equals" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/state/todolists-tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="ids should be equals" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="new array should be added when new todolist is added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/state/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="new array should be added when new todolist is added" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="status of specified task should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/state/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="status of specified task should be changed" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="title of specified task should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/state/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="title of specified task should be changed" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.ids should be equals" />
+        <item itemvalue="Jest.new array should be added when new todolist is added" />
+        <item itemvalue="Jest.title of specified task should be changed" />
+        <item itemvalue="Jest.status of specified task should be changed" />
+        <item itemvalue="Jest.correct task should be added to correct array" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -115,7 +194,10 @@
       <workItem from="1639419242287" duration="4161000" />
       <workItem from="1639425217058" duration="2105000" />
       <workItem from="1639840812027" duration="8542000" />
-      <workItem from="1639923113723" duration="6689000" />
+      <workItem from="1639923113723" duration="7350000" />
+      <workItem from="1640002355495" duration="3667000" />
+      <workItem from="1640103403246" duration="4856000" />
+      <workItem from="1640109813548" duration="598000" />
     </task>
     <servers />
   </component>
