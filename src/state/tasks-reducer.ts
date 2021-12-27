@@ -1,4 +1,4 @@
-import {filterTaskType, tasksType, todolistType} from "../App";
+import {tasksType} from "../App";
 import {v1} from "uuid";
 import {AddTodolistAT, RemoveTodolistAT, todolistId1, todolistId2} from "./todolist-reducer";
 
@@ -53,16 +53,16 @@ const initialState: tasksType = {
     ]
 }
 
-export const tasksReducer = (state=initialState, action: ActionsType): tasksType => {
+export const tasksReducer = (state = initialState, action: ActionsType): tasksType => {
     switch (action.type) {
         case 'REMOVE-TASK': {
-            const copyState = state
+            const copyState = {...state}
             const todolistTasks = copyState[action.todolistId]
             copyState[action.todolistId] = todolistTasks.filter(t => t.id !== action.taskId)
             return copyState
         }
         case "ADD-TASK": {
-            const copyState = state
+            const copyState = {...state}
             const todolistTasks = copyState[action.todolistId]
             const newTask = {
                 id: v1(), description: "", title: action.title, completed: false, status: 1, priority: 1,
@@ -72,7 +72,7 @@ export const tasksReducer = (state=initialState, action: ActionsType): tasksType
             return copyState
         }
         case "CHANGE-TASK-STATUS": {
-            const copyState = state
+            const copyState = {...state}
             const todolistTasks = copyState[action.todolistId]
             copyState[action.todolistId] = todolistTasks.map(t => t.id === action.taskId ? {
                 ...t,
@@ -81,7 +81,7 @@ export const tasksReducer = (state=initialState, action: ActionsType): tasksType
             return copyState
         }
         case "CHANGE-TASK-TITLE": {
-            const copyState = state
+            const copyState = {...state}
             const todolistTasks = copyState[action.todolistId]
             copyState[action.todolistId] = todolistTasks.map(t => t.id === action.taskId ? {
                 ...t,
@@ -95,7 +95,7 @@ export const tasksReducer = (state=initialState, action: ActionsType): tasksType
                 ...state
             }
         case "REMOVE-TODOLIST":
-            const copyState = state
+            const copyState = {...state}
             delete copyState[action.id]
             return copyState
         default:

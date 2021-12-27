@@ -5,7 +5,8 @@ import {AddBox} from "@material-ui/icons";
 type AddItemFormPropsType = {
     addItem: (title: string) => void
 }
-export const AddItemForm = (props: AddItemFormPropsType) => {
+export const AddItemForm = React.memo((props: AddItemFormPropsType) => {
+    console.log("Add Item form")
     const [title, setTitle] = useState("")
     const [error, setError] = useState<string | null>(null)
 
@@ -16,16 +17,16 @@ export const AddItemForm = (props: AddItemFormPropsType) => {
         } else {
             setError('Field is required!')
         }
-
     }
     const setTitleTask = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        setError(null)
+        if (error !== null) setError(null)
         if (e.charCode === 13 && title.trim() !== "") {
             props.addItem(title)
             setTitle('')
         } else if (e.charCode === 13 && title.trim() === "") {
             setError('Field is required!')
+            if (error !== null) setError(null)
         }
     }
 
@@ -37,4 +38,4 @@ export const AddItemForm = (props: AddItemFormPropsType) => {
         </IconButton>
         {error && <div className={'error-message'}>{error}</div>}
     </div>
-}
+})
