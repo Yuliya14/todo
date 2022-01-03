@@ -27,7 +27,7 @@
       <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/todolistsAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../1.monday/TODOLIST/ignat_HW/my-app" beforeDir="false" afterPath="$PROJECT_DIR$/../../1.monday/TODOLIST/ignat_HW/my-app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../monday/TODOLIST/controlwork/my-app/src/Todolist.tsx" beforeDir="false" />
@@ -38,11 +38,12 @@
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditableSpan.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/state/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/todolist-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolist-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/task.test.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/tasks.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/todolists-reducer.test.ts" beforeDir="false" />
@@ -106,6 +107,9 @@
       <recent name="D:\IT-INCUBATOR\todolist\my-app\src\EditableSpan.tsx" />
       <recent name="D:\IT-INCUBATOR\todolist\my-app\src\AddItemForm.tsx" />
       <recent name="D:\IT-INCUBATOR\todolist\my-app\src\Todolist.tsx" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IT-INCUBATOR\todolist\my-app\src" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.correct filter of todolist should be changed">
@@ -209,7 +213,8 @@
       <workItem from="1640109813548" duration="1037000" />
       <workItem from="1640427280261" duration="6109000" />
       <workItem from="1640438056305" duration="226000" />
-      <workItem from="1640623251000" duration="6750000" />
+      <workItem from="1640623251000" duration="11162000" />
+      <workItem from="1641232510701" duration="3425000" />
     </task>
     <servers />
   </component>
