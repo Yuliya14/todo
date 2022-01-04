@@ -8,7 +8,12 @@ import {Button, Container, Grid, IconButton, Paper, Typography} from "@material-
 import {Menu} from "@material-ui/icons";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./state/store";
-import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC} from "./state/tasks-reducer";
+import {
+    addTaskTC,
+    changeTaskStatusAC,
+    changeTaskTitleAC,
+    deleteTaskTC,
+} from "./state/tasks-reducer";
 import {
     addTodolistAC,
     changeTodolistFilterAC,
@@ -51,13 +56,13 @@ function App() {
 
     useEffect(() => {
         dispatch(fetchTodolistsTC())
-    })
+    }, [])
 
     const removeTask = useCallback((taskId: string, todolistId: string) => {
-        dispatch(removeTaskAC(todolistId, taskId))
+       dispatch(deleteTaskTC(todolistId, taskId))
     }, [dispatch])
     const addTask = useCallback((title: string, todolistId: string) => {
-        dispatch(addTaskAC(todolistId, title))
+        dispatch(addTaskTC(todolistId, title))
     }, [dispatch])
     const changeTaskStatus = useCallback((taskId: string, completed: boolean, todolistId: string) => {
         dispatch(changeTaskStatusAC(todolistId, taskId, completed))

@@ -1,10 +1,12 @@
-import React, {MouseEvent, useCallback} from "react";
+import React, {MouseEvent, useCallback, useEffect} from "react";
 import {filterTaskType, tasksType, taskType} from "./App";
 import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./EditableSpan";
 import {Button, IconButton} from "@material-ui/core";
 import {Delete} from "@material-ui/icons";
 import {Task} from "./Task";
+import {fetchTasksTC} from "./state/tasks-reducer";
+import {useDispatch} from "react-redux";
 
 type TodolistPropsType = {
     todolistId: string
@@ -20,7 +22,11 @@ type TodolistPropsType = {
     changeTodolistTitle: (newTitle: string, todolistId: string) => void
 }
 export const Todolist = React.memo((props: TodolistPropsType) => {
-    console.log("todolist")
+    const dispatch = useDispatch()
+    useEffect( () => {
+        dispatch(fetchTasksTC(props.todolistId))
+    }, [])
+
     const removeTodolist = useCallback((e: MouseEvent<HTMLButtonElement>) => (props.removeTodolist(props.todolistId)), [props])
     const setFilterAll = useCallback((e: MouseEvent<HTMLButtonElement>) => (props.changeTodolistFilter('all', props.todolistId)), [props])
     const setFilterActive = useCallback((e: MouseEvent<HTMLButtonElement>) => (props.changeTodolistFilter('active', props.todolistId)), [props])

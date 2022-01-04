@@ -1,7 +1,7 @@
 import {filterTaskType, todolistType, todolistTypeAPI} from "../App";
 import {v1} from "uuid";
 import {Dispatch} from "redux";
-import {todolistsAPI} from "../api/todolistsAPI";
+import {API} from "../api/API";
 
 type ActionsType = RemoveTodolistAT
     | AddTodolistAT
@@ -32,12 +32,8 @@ type ChangeTodolistFilterAT = {
     filter: filterTaskType
     id: string
 }
-export const todolistId1 = v1()
-export const todolistId2 = v1()
-const initialState: todolistType[] = [
-    {id: todolistId1, addedDate: "", order: 0, title: "Home", filter: 'all'},
-    {id: todolistId2, addedDate: "", order: 0, title: "Work", filter: 'all'},
-]
+
+const initialState: todolistType[] = []
 
 export const todolistsReducer = (state = initialState, action: ActionsType): todolistType[] => {
     switch (action.type) {
@@ -73,6 +69,6 @@ export const setTodolistsAC = (todolists: todolistTypeAPI[]) => {
 }
 //thunkCreator
 export const fetchTodolistsTC = () => (dispatch: Dispatch) => {
-    todolistsAPI.getTodolists()
+    API.getTodolists()
         .then(res => dispatch(setTodolistsAC(res.data)))
 }
