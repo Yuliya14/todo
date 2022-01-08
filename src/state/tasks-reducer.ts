@@ -2,8 +2,7 @@ import {tasksType, taskType} from "../App";
 import {v1} from "uuid";
 import {AddTodolistAT, RemoveTodolistAT, SetTodolistsAT} from "./todolist-reducer";
 import {Dispatch} from "redux";
-import {tasksAPI, API, TaskStatuses} from "../api/API";
-import {AppRootStateType} from "./store";
+import {tasksAPI, TaskStatuses} from "../api/TodolistsAPI";
 
 type ActionsType = removeTaskAT | addTaskAT | changeTaskStatusAT | changeTaskTitleAT
     | AddTodolistAT | RemoveTodolistAT | SetTodolistsAT | setTasksAT
@@ -131,14 +130,11 @@ export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispa
             dispatch(addTaskAC(res.data.data.item))
         })
 }
-/*
-export const updateStatusTaskTC = (taskId: string, todolistId: string, status: TaskStatuses) => (dispatch: Dispatch, getState: () => AppRootStateType) =>
+/*export const updateStatusTaskTC = (taskId: string, todolistId: string, status: { status: TaskStatuses }) => (dispatch: Dispatch, getState: () => AppRootStateType) =>
 {
     const allTasksFromState = getState().tasks;
     const tasksForCurrentTodolist = allTasksFromState[todolistId]
-    const task = tasksForCurrentTodolist.find(t => {
-        return t.id === taskId
-    })
+    const task = tasksForCurrentTodolist.find(t => t.id === taskId)
     if (task) {
         tasksAPI.updateTask(todolistId, taskId, {
             description: task.description,
@@ -153,7 +149,7 @@ export const updateStatusTaskTC = (taskId: string, todolistId: string, status: T
             order: task.order,
             addedDate: task.addedDate
         }).then(() => {
-            const action = changeTaskStatusAC(taskId, status, todolistId)
+            const action = changeTaskStatusAC(todolistId, taskId, status)
             dispatch(action)
         })
     }

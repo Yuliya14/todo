@@ -12,7 +12,6 @@ type TaskPropsType = {
     task: taskType
 }
 export const Task = React.memo((props: TaskPropsType) => {
-    console.log("Task")
         const removeTask = useCallback((e: MouseEvent<HTMLButtonElement>) => {
             props.removeTask(props.task.id, props.todolistId)
         }, [props])

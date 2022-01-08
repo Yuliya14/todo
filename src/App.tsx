@@ -17,7 +17,7 @@ import {
 import {
     addTodolistAC,
     changeTodolistFilterAC,
-    changeTodolistTitleAC, fetchTodolistsTC,
+    changeTodolistTitleAC, createTodolistTC, deleteTodolistTC, fetchTodolistsTC,
     removeTodolistAC,
 } from "./state/todolist-reducer";
 
@@ -65,20 +65,20 @@ function App() {
         dispatch(addTaskTC(todolistId, title))
     }, [dispatch])
     const changeTaskStatus = useCallback((taskId: string, completed: boolean, todolistId: string) => {
-        dispatch(changeTaskStatusAC(todolistId, taskId, completed))
+        dispatch(changeTaskStatusAC(taskId, todolistId, completed))
     }, [dispatch])
     const changeTaskTitle = useCallback((taskId: string, newTitle: string, todolistId: string) => {
         dispatch(changeTaskTitleAC(todolistId, taskId, newTitle))
     }, [dispatch])
 
     const removeTodolist = useCallback((todolistId: string) => {
-        dispatch(removeTodolistAC(todolistId))
+        dispatch(deleteTodolistTC(todolistId))
     }, [dispatch])
     const changeFilterTodolist = useCallback((filterValue: filterTaskType, todolistId: string) => {
         dispatch(changeTodolistFilterAC(filterValue, todolistId))
     }, [dispatch])
     const addTodolist = useCallback((title: string) => {
-        dispatch(addTodolistAC(title))
+        dispatch(createTodolistTC(title))
     }, [dispatch])
     const changeTodolistTitle = useCallback((newTitle: string, todolistId: string) => {
         dispatch(changeTodolistTitleAC(newTitle, todolistId))
