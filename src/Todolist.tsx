@@ -7,11 +7,12 @@ import {Delete} from "@material-ui/icons";
 import {Task} from "./Task";
 import {fetchTasksTC} from "./state/tasks-reducer";
 import {useDispatch} from "react-redux";
+import {TaskStatuses} from "./api/TodolistsAPI";
 
 type TodolistPropsType = {
     todolistId: string
     removeTask: (taskId: string, todolistId: string) => void
-    changeTaskStatus: (taskId: string, completed: boolean, todolistId: string) => void
+    changeTaskStatus: (taskId: string, status: TaskStatuses, todolistId: string) => void
     changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
     removeTodolist: (todolistId: string) => void
     title: string

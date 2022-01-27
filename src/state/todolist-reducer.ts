@@ -15,8 +15,7 @@ export type RemoveTodolistAT = {
 }
 export type AddTodolistAT = {
     type: 'ADD-TODOLIST'
-    title: string
-    todolistId: string
+    todolist: todolistTypeAPI
 }
 export type SetTodolistsAT = {
     type: "SET-TODOLISTS"
@@ -40,7 +39,8 @@ export const todolistsReducer = (state = initialState, action: ActionsType): tod
         case 'REMOVE-TODOLIST':
             return [...state.filter(tl => tl.id !== action.id)]
         case 'ADD-TODOLIST':
-            return [{id: action.todolistId, addedDate: "", order: 0, title: action.title, filter: 'all'}, ...state]
+            const newTodolist: todolistType = {...action.todolist, filter: "all"}
+            return [newTodolist, ...state]
         case 'CHANGE-TODOLIST-TITLE':
             return state.map(tl => tl.id === action.id ? {...tl, title: action.newTitle} : tl)
         case 'CHANGE-TODOLIST-FILTER':
@@ -55,8 +55,8 @@ export const todolistsReducer = (state = initialState, action: ActionsType): tod
 export const removeTodolistAC = (id: string): RemoveTodolistAT => {
     return {type: 'REMOVE-TODOLIST', id}
 }
-export const addTodolistAC = (title: string): AddTodolistAT => {
-    return {type: 'ADD-TODOLIST', title, todolistId: v1()}
+export const addTodolistAC = (todolist: todolistType): AddTodolistAT => {
+    return {type: 'ADD-TODOLIST', todolist}
 }
 export const changeTodolistTitleAC = (newTitle: string, id: string): ChangeTodolistTitleAT => {
     return {type: 'CHANGE-TODOLIST-TITLE', newTitle, id}
@@ -78,5 +78,9 @@ export const deleteTodolistTC = (todolistId: string) => (dispatch: Dispatch) => 
 }
 export const createTodolistTC = (title: string) => (dispatch: Dispatch) => {
     todolistsAPI.createTodolist(title)
-        .then(res => dispatch(addTodolistAC(title)))
+        .then(res => dispatch(addTodolistAC(res.data.data.item)))
+}
+export const changeTodolistTitleTC = (newTitle: string, id: string) => (dispatch: Dispatch) => {
+    todolistsAPI.updateTodolist(id, newTitle)
+        .then(res => dispatch(changeTodolistTitleAC(newTitle, id)))
 }

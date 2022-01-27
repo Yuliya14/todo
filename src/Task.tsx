@@ -3,11 +3,12 @@ import {Checkbox, IconButton} from "@material-ui/core";
 import {HighlightOff} from "@material-ui/icons";
 import {EditableSpan} from "./EditableSpan";
 import {taskType} from "./App";
+import {TaskStatuses} from "./api/TodolistsAPI";
 
 type TaskPropsType = {
     todolistId: string
     removeTask: (taskId: string, todolistId: string) => void
-    changeTaskStatus: (taskId: string, completed: boolean, todolistId: string) => void
+    changeTaskStatus: (taskId: string, status: TaskStatuses, todolistId: string) => void
     changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
     task: taskType
 }
@@ -17,7 +18,7 @@ export const Task = React.memo((props: TaskPropsType) => {
         }, [props])
         const changeTaskStatus = useCallback((e: ChangeEvent<HTMLInputElement>) => {
             let currentTaskCompleted = e.currentTarget.checked
-            props.changeTaskStatus(props.task.id, currentTaskCompleted, props.todolistId)
+            props.changeTaskStatus(props.task.id, currentTaskCompleted ? TaskStatuses.Completed : TaskStatuses.New, props.todolistId)
         }, [props])
         const changeTaskTitle = useCallback((newTitle: string) => {
             props.changeTaskTitle(props.task.id, newTitle, props.todolistId)
