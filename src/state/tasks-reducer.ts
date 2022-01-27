@@ -138,8 +138,21 @@ export const updateStatusTaskTC = (taskId: string, todolistId: string, status: T
         const allTasksFromState = getState().tasks;
         const tasksForCurrentTodolist = allTasksFromState[todolistId]
         const task = tasksForCurrentTodolist.find(t => t.id === taskId)
+
         if (task) {
-            tasksAPI.updateTask(todolistId, taskId, {...task, status})
+            tasksAPI.updateTask(todolistId, taskId, {
+                status: status,
+                title: task.title,
+                id: taskId,
+                addedDate: task.addedDate,
+                order: task.order,
+                completed: task.completed,
+                deadline: task.deadline,
+                description: task.description,
+                priority: task.priority,
+                todoListId:todolistId,
+                startDate: task.startDate
+            })
                 .then(res => {
                     dispatch(changeTaskStatusAC(todolistId, taskId, status))
                 })

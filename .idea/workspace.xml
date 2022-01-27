@@ -41,13 +41,10 @@
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockAnalog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/src/ClockDigital.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/TodolistsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/TodolistsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/tasks-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/state/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/todolist-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolist-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolist-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolists-tasks-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/task.test.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/tasks.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tuesday/TODOLIST/todolist-victor/src/store/todolists-reducer.test.ts" beforeDir="false" />
@@ -116,7 +113,7 @@
       <recent name="D:\IT-INCUBATOR\todolist\my-app\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.status of specified task should be changed">
+  <component name="RunManager" selected="Jest.correct todolist should be added">
     <configuration name="correct filter of todolist should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -184,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.correct todolist should be added" />
         <item itemvalue="Jest.status of specified task should be changed" />
         <item itemvalue="Jest.correct task should be added to correct array" />
         <item itemvalue="Jest.correct filter of todolist should be changed" />
         <item itemvalue="Jest.correct todolist should change its name" />
-        <item itemvalue="Jest.correct todolist should be added" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +223,7 @@
       <workItem from="1642959718849" duration="16000" />
       <workItem from="1643048463492" duration="15000" />
       <workItem from="1643218457799" duration="2889000" />
-      <workItem from="1643303412640" duration="2499000" />
+      <workItem from="1643303412640" duration="4969000" />
     </task>
     <servers />
   </component>

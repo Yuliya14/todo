@@ -36,6 +36,7 @@ export const tasksAPI = {
         return instance.put<UpdateModelType, AxiosResponse<ResponseType<{item: taskType}>>>(` todo-lists/${todolistId}/tasks/${taskId}`, model)
     },
 }
+
 export type ResponseType<D = {}> = {
     resultCode: number
     messages: Array<string>,
