@@ -33,7 +33,7 @@ export const tasksAPI = {
         return instance.post<{ title: string }, AxiosResponse<ResponseType<{item: taskType}>>>(`todo-lists/${todolistId}/tasks`, {title})
     },
     updateTask(todolistId: string, taskId: string, model: UpdateModelType) {
-        return instance.put<UpdateModelType, AxiosResponse<ResponseType<{item: taskType}>>>(` todo-lists/${todolistId}/tasks/${taskId}`, model)
+        return instance.put<UpdateModelType, AxiosResponse<ResponseType<{item: taskType}>>>(`todo-lists/${todolistId}/tasks/${taskId}`, model)
     },
 }
 
@@ -55,15 +55,10 @@ export enum TaskStatuses {
     Draft = 3
 }
 type UpdateModelType = {
-    description: string
     title: string
-    completed: boolean
+    description: string
     status: TaskStatuses
     priority: number
     startDate: string
     deadline: string
-    id: string
-    todoListId: string
-    order: number
-    addedDate: string
 }

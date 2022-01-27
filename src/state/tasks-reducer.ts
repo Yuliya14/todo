@@ -51,6 +51,7 @@ export const tasksReducer = (state = initialState, action: ActionsType): tasksTy
             return copyState
         }
         case "CHANGE-TASK-STATUS": {
+            debugger
             const copyState = {...state}
             const todolistTasks = copyState[action.todolistId]
             if (todolistTasks) {
@@ -139,24 +140,19 @@ export const updateStatusTaskTC = (taskId: string, todolistId: string, status: T
         const tasksForCurrentTodolist = allTasksFromState[todolistId]
         const task = tasksForCurrentTodolist.find(t => t.id === taskId)
 
-        if (task) {
-            tasksAPI.updateTask(todolistId, taskId, {
-                status: status,
-                title: task.title,
-                id: taskId,
-                addedDate: task.addedDate,
-                order: task.order,
-                completed: task.completed,
-                deadline: task.deadline,
-                description: task.description,
-                priority: task.priority,
-                todoListId:todolistId,
-                startDate: task.startDate
+        if (!task) {return}
+
+        tasksAPI.updateTask(todolistId, taskId, {
+            status: status,
+            title: task.title,
+            startDate: task.startDate,
+            priority: task.priority,
+            description: task.description,
+            deadline: task.deadline
+        })
+            .then(res => {
+                dispatch(changeTaskStatusAC(todolistId, taskId, status))
             })
-                .then(res => {
-                    dispatch(changeTaskStatusAC(todolistId, taskId, status))
-                })
-        }
     }
 export const updateTitleTaskTC = (taskId: string, todolistId: string, title: string) =>
     (dispatch: Dispatch, getState: () => AppRootStateType) => {
@@ -164,7 +160,14 @@ export const updateTitleTaskTC = (taskId: string, todolistId: string, title: str
         const tasksForCurrentTodolist = allTasksFromState[todolistId]
         const task = tasksForCurrentTodolist.find(t => t.id === taskId)
         if (task) {
-            tasksAPI.updateTask(todolistId, taskId, {...task, title})
+            tasksAPI.updateTask(todolistId, taskId, {
+                status: task.status,
+                title,
+                startDate: task.startDate,
+                priority: task.priority,
+                description: task.description,
+                deadline: task.deadline
+            })
                 .then(res => {
                     dispatch(changeTaskTitleAC(todolistId, taskId, title))
                 })
