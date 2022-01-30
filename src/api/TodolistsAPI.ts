@@ -54,7 +54,7 @@ export enum TaskStatuses {
     Completed = 2,
     Draft = 3
 }
-type UpdateModelType = {
+export type UpdateModelType = {
     title: string
     description: string
     status: TaskStatuses

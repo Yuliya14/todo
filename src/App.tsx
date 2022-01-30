@@ -4,18 +4,19 @@ import {Todolist} from "./Todolist";
 import {AddItemForm} from "./AddItemForm";
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import Toolbar from '@material-ui/core/Toolbar/Toolbar';
-import {Button, Container, Grid, IconButton, Paper, Typography} from "@material-ui/core";
+import {Button, Container, Grid, IconButton, LinearProgress, Paper, Typography} from "@material-ui/core";
 import {Menu} from "@material-ui/icons";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./state/store";
 import {
     addTaskTC,
-    deleteTaskTC, updateStatusTaskTC, updateTitleTaskTC,
+    deleteTaskTC, updateTaskTC,
 } from "./state/tasks-reducer";
 import {
     changeTodolistFilterAC, changeTodolistTitleTC, createTodolistTC, deleteTodolistTC, fetchTodolistsTC,
 } from "./state/todolist-reducer";
 import {TaskStatuses} from "./api/TodolistsAPI";
+import {requestStatusType} from "./state/app-reducer";
 
 export type taskType = {
     description: string
@@ -48,6 +49,8 @@ export type todolistType = todolistTypeAPI & {
 function App() {
     const todolists = useSelector<AppRootStateType, todolistType[]>(store => store.todolists)
     const tasks = useSelector<AppRootStateType, tasksType>(store => store.tasks)
+    const status = useSelector<AppRootStateType, requestStatusType>(store => store.app.status)
+
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -61,10 +64,10 @@ function App() {
         dispatch(addTaskTC(todolistId, title))
     }, [dispatch])
     const changeTaskStatus = useCallback((taskId: string, status: TaskStatuses, todolistId: string) => {
-        dispatch(updateStatusTaskTC(taskId, todolistId, status))
+        dispatch(updateTaskTC(taskId, todolistId, {status}))
     }, [dispatch])
     const changeTaskTitle = useCallback((taskId: string, newTitle: string, todolistId: string) => {
-        dispatch(updateTitleTaskTC(taskId, todolistId, newTitle))
+        dispatch(updateTaskTC(taskId, todolistId, {title: newTitle}))
     }, [dispatch])
 
     const removeTodolist = useCallback((todolistId: string) => {
@@ -96,6 +99,7 @@ function App() {
                     <Button color="inherit" variant="outlined">Login</Button>
                 </Toolbar>
             </AppBar>
+            {status === 'loading' && <LinearProgress color="secondary"/>}
             <Container fixed>
                 <Grid container style={{padding: "10px 0px"}}>
                     <AddItemForm addItem={addTodolist}/>
