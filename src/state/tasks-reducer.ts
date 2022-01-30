@@ -3,7 +3,7 @@ import {AddTodolistAT, RemoveTodolistAT, SetTodolistsAT} from "./todolist-reduce
 import {Dispatch} from "redux";
 import {tasksAPI, TaskStatuses, UpdateModelType} from "../api/TodolistsAPI";
 import {AppRootStateType} from "./store";
-import {setAppStatusAC} from "./app-reducer";
+import {setAppErrorAC, setAppStatusAC} from "./app-reducer";
 
 type ActionsType = removeTaskAT | addTaskAT | updateTaskAT
     | AddTodolistAT | RemoveTodolistAT | SetTodolistsAT | setTasksAT
@@ -124,8 +124,17 @@ export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispa
     dispatch(setAppStatusAC('loading'))
     tasksAPI.addTask(todolistId, title)
         .then(res => {
-            dispatch(addTaskAC(res.data.data.item))
-            dispatch(setAppStatusAC('succeeded'))
+            if(res.data.resultCode === 0) {
+                dispatch(addTaskAC(res.data.data.item))
+                dispatch(setAppStatusAC('succeeded'))
+            } else {
+                if(res.data.messages.length){
+                    dispatch(setAppErrorAC(res.data.messages[0]))
+                } else {
+                    dispatch(setAppErrorAC("Some error"))
+                }
+                dispatch(setAppStatusAC('failed'))
+            }
         })
 }
 export const updateTaskTC = (taskId: string, todolistId: string, domainModel: UpdateDomainModelType) =>

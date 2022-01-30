@@ -1,7 +1,7 @@
 import React, {ChangeEvent, MouseEvent, useCallback} from "react";
 import {Checkbox, IconButton} from "@material-ui/core";
 import {HighlightOff} from "@material-ui/icons";
-import {EditableSpan} from "./EditableSpan";
+import {EditableSpan} from "./common/EditableSpan";
 import {taskType} from "./App";
 import {TaskStatuses} from "./api/TodolistsAPI";
 

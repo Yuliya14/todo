@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from 'react';
 import './App.css';
 import {Todolist} from "./Todolist";
-import {AddItemForm} from "./AddItemForm";
+import {AddItemForm} from "./common/AddItemForm";
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import Toolbar from '@material-ui/core/Toolbar/Toolbar';
 import {Button, Container, Grid, IconButton, LinearProgress, Paper, Typography} from "@material-ui/core";
@@ -17,6 +17,7 @@ import {
 } from "./state/todolist-reducer";
 import {TaskStatuses} from "./api/TodolistsAPI";
 import {requestStatusType} from "./state/app-reducer";
+import {ErrorSnackbar} from "./common/ErrorSnackbar";
 
 export type taskType = {
     description: string
@@ -126,6 +127,7 @@ function App() {
                     })}
                 </Grid>
             </Container>
+            <ErrorSnackbar/>
         </div>
     );
 }
