@@ -4,12 +4,13 @@ import React, {ChangeEvent, useState} from "react";
 type EditableSpanPropsType = {
     title: string
     onChange: (newValue: string) => void
+    disabled?: boolean
 }
 export const EditableSpan = React.memo((props: EditableSpanPropsType) => {
     const [editMode, setEditMode] = useState(false)
     const [title, setTitle] = useState(props.title)
     const activateEditMode = () => {
-        setEditMode(true)
+        props.disabled ?  setEditMode(false) : setEditMode(true)
         setTitle(props.title)
     }
     const activateViewMode = () => {

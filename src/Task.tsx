@@ -25,15 +25,16 @@ export const Task = React.memo((props: TaskPropsType) => {
         }, [props])
         return <div key={props.task.id}>
             <li className={props.task.completed ? 'is-done' : ''}>
-                <IconButton onClick={removeTask}>
+                <IconButton onClick={removeTask} disabled={props.task.entityStatus === 'loading'}>
                     <HighlightOff/>
                 </IconButton>
                 <Checkbox
                     checked={props.task.completed}
                     onChange={changeTaskStatus}
                     color="secondary"
+                    disabled={props.task.entityStatus === 'loading'}
                 />
-                <EditableSpan title={props.task.title} onChange={changeTaskTitle}/>
+                <EditableSpan title={props.task.title} onChange={changeTaskTitle} disabled={props.task.entityStatus === 'loading'}/>
             </li>
         </div>
     })

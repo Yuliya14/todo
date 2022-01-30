@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from 'axios';
-import {taskType, todolistType, todolistTypeAPI} from "../App";
+import {taskTypeAPI, todolistType, todolistTypeAPI} from "../App";
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.1/',
@@ -30,10 +30,10 @@ export const tasksAPI = {
         return instance.delete<ResponseType>(`todo-lists/${todolistId}/tasks/${taskId}`)
     },
     addTask(todolistId: string, title: string) {
-        return instance.post<{ title: string }, AxiosResponse<ResponseType<{item: taskType}>>>(`todo-lists/${todolistId}/tasks`, {title})
+        return instance.post<{ title: string }, AxiosResponse<ResponseType<{item: taskTypeAPI}>>>(`todo-lists/${todolistId}/tasks`, {title})
     },
     updateTask(todolistId: string, taskId: string, model: UpdateModelType) {
-        return instance.put<UpdateModelType, AxiosResponse<ResponseType<{item: taskType}>>>(`todo-lists/${todolistId}/tasks/${taskId}`, model)
+        return instance.put<UpdateModelType, AxiosResponse<ResponseType<{item: taskTypeAPI}>>>(`todo-lists/${todolistId}/tasks/${taskId}`, model)
     },
 }
 
@@ -46,7 +46,7 @@ export type ResponseType<D = {}> = {
 type GetTasksResponse = {
     error: string | null
     totalCount: number
-    items: taskType[]
+    items: taskTypeAPI[]
 }
 export enum TaskStatuses {
     New = 0,

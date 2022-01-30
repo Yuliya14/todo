@@ -104,7 +104,7 @@ function App() {
         </div>
     );
 }
-export type taskType = {
+export type taskTypeAPI = {
     description: string
     title: string
     completed: boolean
@@ -116,6 +116,9 @@ export type taskType = {
     todoListId: string
     order: number
     addedDate: string
+}
+export type taskType = taskTypeAPI & {
+    entityStatus: requestStatusType
 }
 export type tasksType = {
     [key: string]: taskType[]
