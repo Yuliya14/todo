@@ -19,34 +19,6 @@ import {TaskStatuses} from "./api/TodolistsAPI";
 import {requestStatusType} from "./state/app-reducer";
 import {ErrorSnackbar} from "./common/ErrorSnackbar";
 
-export type taskType = {
-    description: string
-    title: string
-    completed: boolean
-    status: number
-    priority: number
-    startDate: string
-    deadline: string
-    id: string
-    todoListId: string
-    order: number
-    addedDate: string
-}
-export type tasksType = {
-    [key: string]: taskType[]
-}
-export type filterTaskType = 'all' | 'active' | 'completed'
-export type todolistTypeAPI = {
-    id: string
-    addedDate: string
-    order: number
-    title: string
-}
-export type todolistType = todolistTypeAPI & {
-    filter: filterTaskType
-}
-
-
 function App() {
     const todolists = useSelector<AppRootStateType, todolistType[]>(store => store.todolists)
     const tasks = useSelector<AppRootStateType, tasksType>(store => store.tasks)
@@ -121,6 +93,7 @@ function App() {
                                           changeTaskStatus={changeTaskStatus}
                                           changeTaskTitle={changeTaskTitle}
                                           changeTodolistTitle={changeTodolistTitle}
+                                          entityStatus = {t.entityStatus}
                                 />
                             </Paper>
                         </Grid>
@@ -130,6 +103,33 @@ function App() {
             <ErrorSnackbar/>
         </div>
     );
+}
+export type taskType = {
+    description: string
+    title: string
+    completed: boolean
+    status: number
+    priority: number
+    startDate: string
+    deadline: string
+    id: string
+    todoListId: string
+    order: number
+    addedDate: string
+}
+export type tasksType = {
+    [key: string]: taskType[]
+}
+export type filterTaskType = 'all' | 'active' | 'completed'
+export type todolistTypeAPI = {
+    id: string
+    addedDate: string
+    order: number
+    title: string
+}
+export type todolistType = todolistTypeAPI & {
+    filter: filterTaskType
+    entityStatus: requestStatusType
 }
 
 export default App;

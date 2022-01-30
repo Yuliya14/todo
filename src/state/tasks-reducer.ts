@@ -1,5 +1,5 @@
 import {tasksType, taskType, todolistType} from "../App";
-import {AddTodolistAT, RemoveTodolistAT, SetTodolistsAT} from "./todolist-reducer";
+import {AddTodolistAT, changeTodolistEntityStatusAC, RemoveTodolistAT, SetTodolistsAT} from "./todolist-reducer";
 import {Dispatch} from "redux";
 import {tasksAPI, TaskStatuses, UpdateModelType} from "../api/TodolistsAPI";
 import {AppRootStateType} from "./store";
