@@ -1,5 +1,5 @@
 import React, {MouseEvent, useCallback, useEffect} from "react";
-import {filterTaskType, tasksType, taskType, taskTypeAPI} from "./App";
+import {filterTaskType, tasksType, taskType} from "./App";
 import {AddItemForm} from "./common/AddItemForm";
 import {EditableSpan} from "./common/EditableSpan";
 import {Button, IconButton} from "@material-ui/core";
