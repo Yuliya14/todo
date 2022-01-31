@@ -32,12 +32,12 @@ export const Login = () => {
             const errors: formikErrorsType = {}
             if (!values.email) errors.email = 'Required'
             else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) errors.email = 'Invalid email'
-            else if(!values.password) errors.password = 'Required'
-            else if(errors.password && errors.password.length < 5) errors.password = 'Length password should be more 5'
+            else if (!values.password) errors.password = 'Required'
+            else if (errors.password && errors.password.length < 5) errors.password = 'Length password should be more 5'
             return errors
         }
     })
-    if(isLoggedIn) {
+    if (isLoggedIn) {
         return <Navigate to={'/'}/>
     }
     return <Grid container justifyContent={"center"}>

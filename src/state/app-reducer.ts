@@ -39,9 +39,9 @@ export const initializeAppTC = () => (dispatch: Dispatch) => {
         .then(res => {
             if(res.data.resultCode === 0) {
                 dispatch(loginAC(true))
-                dispatch(setInitialised(true))
                 dispatch(setAppStatusAC('succeeded'))
             } else handleServerAppError(res.data, dispatch)
+            dispatch(setInitialised(true))
         })
         .catch(error => handleServerNetworkError(error, dispatch))
 }

@@ -12,16 +12,27 @@ import {TofolistsList} from "./TofolistsList";
 import {Login} from "./Login";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import CircularProgress from '@mui/material/CircularProgress';
+import {logoutTC} from "./state/auth-reducer";
 
 function App() {
     const status = useSelector<AppRootStateType, requestStatusType>(store => store.app.status)
     const isInitialized = useSelector<AppRootStateType, boolean>(store => store.app.isInitialised)
+    const isLoggetIn = useSelector<AppRootStateType, boolean>(store => store.auth.isLoggedIn)
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(initializeAppTC())
     }, [dispatch])
-    if(!isInitialized) return <div style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}><CircularProgress color="inherit"/></div>
+
+    const logout = () => {
+        dispatch(logoutTC())
+    }
+
+    if (!isInitialized) {
+        return <div style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}>
+            <CircularProgress color="inherit"/>
+        </div>
+    }
     return (
         <BrowserRouter>
             <div>
@@ -36,7 +47,9 @@ function App() {
                         <Typography>
                             Todolist
                         </Typography>
-                        <Button color="inherit" variant="outlined">Login</Button>
+                        {isLoggetIn
+                            ? <Button color="inherit" variant="outlined" onClick={logout}>Logout</Button>
+                            : <Button color="inherit" variant="outlined">Login</Button>}
                     </Toolbar>
                 </AppBar>
                 {status === 'loading' && <LinearProgress color="secondary"/>}
@@ -44,7 +57,7 @@ function App() {
                     <Routes>
                         <Route path={'/'} element={<TofolistsList/>}/>
                         <Route path={'/login'} element={<Login/>}/>
-                        <Route path={'/404'} element ={<h1>404: PAGE NOT FOUND</h1>}/>
+                        <Route path={'/404'} element={<h1>404: PAGE NOT FOUND</h1>}/>
                         <Route path={'*'} element={<Navigate to={'/404'}/>}/>
                     </Routes>
                 </Container>
