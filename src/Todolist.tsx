@@ -6,9 +6,10 @@ import {Button, IconButton} from "@material-ui/core";
 import {Delete} from "@material-ui/icons";
 import {Task} from "./Task";
 import {fetchTasksTC} from "./state/tasks-reducer";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {TaskStatuses} from "./api/TodolistsAPI";
 import {requestStatusType} from "./state/app-reducer";
+import {AppRootStateType} from "./state/store";
 
 type TodolistPropsType = {
     todolistId: string
@@ -25,9 +26,12 @@ type TodolistPropsType = {
     entityStatus: requestStatusType
 }
 export const Todolist = React.memo((props: TodolistPropsType) => {
+    const isLoggedIn = useSelector<AppRootStateType, boolean>(store => store.auth.isLoggedIn)
+
     const dispatch = useDispatch()
 
     useEffect( () => {
+        if(!isLoggedIn) return
         dispatch(fetchTasksTC(props.todolistId))
     }, [])
 
@@ -55,7 +59,6 @@ export const Todolist = React.memo((props: TodolistPropsType) => {
             ? filteredTasks = allTodolistTasks.filter((t: { completed: boolean; }) => !t.completed)
             : filteredTasks = allTodolistTasks.filter((t: { completed: boolean; }) => t.completed)
     }
-
     return <div>
         <IconButton onClick={removeTodolist} disabled = {props.entityStatus === 'loading'}>
             <Delete/>

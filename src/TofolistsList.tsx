@@ -1,23 +1,30 @@
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./state/store";
-import React, {useCallback} from "react";
+import React, {useCallback, useEffect} from "react";
 import {addTaskTC, deleteTaskTC, updateTaskTC} from "./state/tasks-reducer";
 import {TaskStatuses} from "./api/TodolistsAPI";
 import {
     changeTodolistFilterAC,
     changeTodolistTitleTC,
     createTodolistTC,
-    deleteTodolistTC
+    deleteTodolistTC, fetchTodolistsTC
 } from "./state/todolist-reducer";
 import {Grid, Paper} from "@material-ui/core";
 import {Todolist} from "./Todolist";
 import {filterTaskType, tasksType, todolistType} from "./App";
 import {AddItemForm} from "./common/AddItemForm";
+import {Navigate} from "react-router-dom";
 
 export const TofolistsList = () => {
+
     const todolists = useSelector<AppRootStateType, todolistType[]>(store => store.todolists)
     const tasks = useSelector<AppRootStateType, tasksType>(store => store.tasks)
+    const isLoggedIn = useSelector<AppRootStateType, boolean>(store => store.auth.isLoggedIn)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+      dispatch(fetchTodolistsTC())
+  }, [dispatch])
 
     const removeTask = useCallback((taskId: string, todolistId: string) => {
         dispatch(deleteTaskTC(todolistId, taskId))
@@ -44,6 +51,9 @@ export const TofolistsList = () => {
         dispatch(changeTodolistTitleTC(newTitle, todolistId))
     }, [dispatch])
 
+    if(!isLoggedIn) {
+        return <Navigate to={'/login'}/>
+    }
     return <Grid container  spacing={5}>
         <Grid container style={{padding: "30px 0px"}}>
             <AddItemForm addItem={addTodolist}/>

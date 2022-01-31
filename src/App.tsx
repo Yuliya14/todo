@@ -1,27 +1,27 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
-import {AddItemForm} from "./common/AddItemForm";
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import Toolbar from '@material-ui/core/Toolbar/Toolbar';
-import {Button, Container, Grid, IconButton, LinearProgress, Typography} from "@material-ui/core";
+import {Button, Container, IconButton, LinearProgress, Typography} from "@material-ui/core";
 import {Menu} from "@material-ui/icons";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./state/store";
-import {createTodolistTC, fetchTodolistsTC,} from "./state/todolist-reducer";
-import {requestStatusType} from "./state/app-reducer";
+import {initializeAppTC, requestStatusType} from "./state/app-reducer";
 import {ErrorSnackbar} from "./common/ErrorSnackbar";
 import {TofolistsList} from "./TofolistsList";
 import {Login} from "./Login";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
 
 function App() {
     const status = useSelector<AppRootStateType, requestStatusType>(store => store.app.status)
+    const isInitialized = useSelector<AppRootStateType, boolean>(store => store.app.isInitialised)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchTodolistsTC())
+        dispatch(initializeAppTC())
     }, [dispatch])
-
+    if(!isInitialized) return <div style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}><CircularProgress color="inherit"/></div>
     return (
         <BrowserRouter>
             <div>
