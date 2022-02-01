@@ -10,7 +10,7 @@ import {initializeAppTC, requestStatusType} from "./state/app-reducer";
 import {ErrorSnackbar} from "./common/ErrorSnackbar";
 import {TofolistsList} from "./TofolistsList";
 import {Login} from "./Login";
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import CircularProgress from '@mui/material/CircularProgress';
 import {logoutTC} from "./state/auth-reducer";
 
@@ -34,7 +34,7 @@ function App() {
         </div>
     }
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div>
                 <AppBar position="static" style={{background: "black",}}>
                     <Toolbar style={{justifyContent: "space-between"}}>
@@ -63,7 +63,7 @@ function App() {
                 </Container>
                 <ErrorSnackbar/>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
