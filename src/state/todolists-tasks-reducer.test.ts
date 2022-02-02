@@ -6,7 +6,7 @@ import {v1} from "uuid";
 test('ids should be equals', () => {
     const startTasksState: tasksType = {};
     const startTodolistsState: Array<todolistType> = [];
-    let newTodolist: todolistType = {id: v1(), addedDate: "", order: 0, title: "NEW!!", filter: "active"}
+    let newTodolist: todolistType = {id: v1(), addedDate: "", order: 0, title: "NEW!!", filter: "active",entityStatus: 'idle' }
 
     const action = addTodolistAC(newTodolist);
 

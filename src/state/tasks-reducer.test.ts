@@ -1,11 +1,6 @@
 import {tasksType} from "../App";
 import {removeTodolistAC} from "./todolist-reducer";
-import {
-    addTaskAC,
-    addTodolistAC,
-    removeTaskAC,
-    tasksReducer, updateTaskTC
-} from './tasks-reducer';
+import {addTaskAC, removeTaskAC, tasksReducer} from './tasks-reducer';
 
 let startState: tasksType = {}
 
@@ -14,36 +9,36 @@ beforeEach(() => {
         "todolistId1": [
             {
                 id: "1", description: "", title: "Learn React", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
             {
                 id: "2", description: "", title: "JS", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
             {
                 id: "3", description: "", title: "React", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
         ],
         "todolistId2": [
             {
                 id: "1", description: "", title: "bread", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
             {
                 id: "2", description: "", title: "milk", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
             {
                 id: "3", description: "", title: "tea", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
         ]
     }
 })
 test('correct task should be deleted from correct array', () => {
 
-    const action = removeTaskAC("todolistId2", "3");
+    const action = removeTaskAC({todolistId: "todolistId2", taskId: "3"});
 
     const endState = tasksReducer(startState, action)
 
@@ -51,44 +46,45 @@ test('correct task should be deleted from correct array', () => {
         "todolistId1": [
             {
                 id: "1", description: "", title: "Learn React", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
             {
                 id: "2", description: "", title: "JS", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
             {
                 id: "3", description: "", title: "React", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
         ],
         "todolistId2": [
             {
                 id: "1", description: "", title: "bread", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
             {
                 id: "2", description: "", title: "milk", completed: false, status: 1, priority: 1,
-                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: ""
+                startDate: "", deadline: "", todoListId: "", order: 1, addedDate: "", entityStatus: "idle"
             },
         ]
     });
 
 });
 test('correct task should be added to correct array', () => {
-
-    const action = addTaskAC({
-    description: "",
-    title: "juce",
-    completed: false,
-    status: 0,
-    priority: 0,
-    startDate: "",
-    deadline: "",
-    id: "",
-    todoListId: "todolistId2",
-    order: 0,
-    addedDate: "",});
+    const task = {
+        description: '',
+        title: 'juce',
+        completed: false,
+        status: 0,
+        priority: 0,
+        startDate: '',
+        deadline: '',
+        id: '',
+        todoListId: 'todolistId2',
+        order: 0,
+        addedDate: ''
+    }
+    const action = addTaskAC({task});
 
     const endState = tasksReducer(startState, action)
 

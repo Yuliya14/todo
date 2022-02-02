@@ -2,49 +2,45 @@ import {Dispatch} from "redux";
 import {authAPI} from "../api/TodolistsAPI";
 import {loginAC} from "./auth-reducer";
 import {handleServerAppError, handleServerNetworkError} from "../utils/error-utils";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 const initialState = {
     status: 'loading' as requestStatusType,
     error: null as string | null,
     isInitialised: false
 }
-
-export const appReducer = (state = initialState, action: actionsType): initialStateType => {
-    switch (action.type) {
-        case 'APP/SET-STATUS':
-            return {...state, status: action.status}
-        case 'APP/SET-ERROR':
-            return {...state, error: action.error}
-        case 'APP/SET-INITIALIZED':
-            return {...state, isInitialised: action.isInitialized}
-        default:
-            return {...state}
+const appSlice = createSlice({
+    name: 'app',
+    initialState: initialState,
+    reducers: {
+        setAppStatusAC:
+            (state, action: PayloadAction<{value: requestStatusType}>) => {
+            state.status = action.payload.value
+        },
+        setAppErrorAC: (state, action: PayloadAction<{value: string | null}>) => {
+            state.error = action.payload.value
+        },
+        setInitialised: (state, action: PayloadAction<{value: any | null}>) => {
+            state.isInitialised = action.payload.value
+        },
     }
-}
+})
+export const appReducer = appSlice.reducer
+export const setAppStatusAC = appSlice.actions.setAppStatusAC
+export const setAppErrorAC = appSlice.actions.setAppErrorAC
+export const setInitialised = appSlice.actions.setInitialised
 
-//action creator
-
-export const setAppStatusAC = (status: requestStatusType) => {
-    return {type: 'APP/SET-STATUS', status} as const
-}
-export const setAppErrorAC = (error: string | null) => {
-    return {type: 'APP/SET-ERROR', error} as const
-}
-export const setInitialised = (isInitialized: boolean) => {
-    return {type: 'APP/SET-INITIALIZED', isInitialized} as const
-}
 export const initializeAppTC = () => (dispatch: Dispatch) => {
-    dispatch(setAppStatusAC('loading'))
+    dispatch(setAppStatusAC({value: 'loading'}))
     authAPI.me()
         .then(res => {
             if(res.data.resultCode === 0) {
-                dispatch(loginAC(true))
-                dispatch(setAppStatusAC('succeeded'))
+                dispatch(loginAC({value: true}))
+                dispatch(setAppStatusAC({value: 'succeeded'}))
             } else handleServerAppError(res.data, dispatch)
-            dispatch(setInitialised(true))
+            dispatch(setInitialised({value: true}))
         })
         .catch(error => handleServerNetworkError(error, dispatch))
 }
+
 export type requestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
-export type initialStateType = typeof initialState
-export type actionsType = ReturnType<typeof setAppStatusAC> | ReturnType<typeof setAppErrorAC> | ReturnType<typeof setInitialised>
